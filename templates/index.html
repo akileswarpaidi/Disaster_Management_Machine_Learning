@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Prediction</title>
+</head>
+<body>
+    <h1>Location Prediction Form</h1>
+    <form id="locationForm">
+        <label for="location">Enter Location:</label>
+        <input type="text" id="location" name="location" required>
+        <button type="submit">Predict</button>
+    </form>
+    <div id="predictionResult"></div>
+
+    <script>
+        document.getElementById("locationForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var location = document.getElementById("location").value;
+            fetch("http://127.0.0.1:8000/predict?location=" + location)
+            .then(response => response.json())
+            .then(data => {
+                var resultDiv = document.getElementById("predictionResult");
+                resultDiv.innerHTML = "<h2>Predictions:</h2>";
+                console.log('printing');
+                for (var key in data) {
+                    resultDiv.innerHTML += "<p>" + key + ": " + data[key].prediction + "</p>";
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>

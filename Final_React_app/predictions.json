@@ -1,0 +1,7 @@
+{
+  "flood": { "reading": "10mm", "prediction": "no" },
+  "earthquake": { "reading": "55", "prediction": "no" },
+  "landslide": { "reading": "25", "prediction": "yes" },
+  "tsunami": { "reading": "7", "prediction": "no" },
+  "wildfire": { "reading": "30C", "prediction": "no" }
+}
