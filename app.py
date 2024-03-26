@@ -1,8 +1,6 @@
-import sqlite3
 from flask import Flask, jsonify, render_template, request, redirect, url_for, session
 from flask import Flask, render_template, request, make_response
 from flask import Flask, render_template, request, redirect, url_for, flash
-import sqlite3
 import os
 
 from flask_cors import CORS
@@ -27,4 +25,4 @@ def predict():
         return jsonify({"error": "Location parameter is missing."})
 
 if __name__ == '__main__':
-    app.run(debug=True,port=8000)
+    app.run()
